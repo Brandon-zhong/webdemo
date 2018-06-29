@@ -1,0 +1,22 @@
+apiVersion: "extensions/v1beta1"
+kind: "Deployment"
+metadata:
+  name: "demo"
+  namespace: "default"
+  labels:
+    app: "demo"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: "demo"
+  template:
+    metadata:
+      labels:
+        app: "demo"
+    spec:
+      containers:
+      - name: "demo"
+        image: "registry.cn-hangzhou.aliyuncs.com/brandon-zhong/webdemo-jenkins"
+        ports:
+        - containerPort: 8080
